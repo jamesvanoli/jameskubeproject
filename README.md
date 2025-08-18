@@ -2,17 +2,9 @@
 # Kubernetes Multi‑Tier MySQL + WordPress Deployment
 This repo contains an **incremental Kubernetes deployment** for MySQL + WordPress in the `jameskubeproject` namespace, broken into isolated YAMLs for clean version control.
 ## Folder Structure
-jameskubeproject/
-│
+| jameskubeproject/│
 ├── README.md
-├── 01-deployments.yaml
-├── 02-services.yaml
-├── 03-dashboard-access.yaml
-├── 04-nfs-server-setup.txt
-├── 05-nfs-client-setup.txt
-├── 06-persistent-volumes.yaml
-├── 07-secrets.yaml
-└── 08-configmap.yaml
+
 ## File Map
 | File Name                  | Task / Purpose |
 |----------------------------|----------------|
@@ -26,14 +18,27 @@ jameskubeproject/
 | **08-configmap.yaml**      | WordPress DB host/user/name (ConfigMap) |
 
 ## Apply Order
- Create namespace:
-   ```bash kubectl create namespace jameskubeproject
+ Create namespace: ```bash kubectl create namespace jameskubeproject
+
 ## Apply manifests in order
+
 kubectl apply -f 01-deployments.yaml
+
 kubectl apply -f 02-services.yaml
+
 kubectl apply -f 03-dashboard-access.yaml
+
+#server-side shell commands to prep NFS
+
 04-nfs-server-setup.txt
+
+#Commands to run on each Kubernetes node
+
 05-nfs-client-setup.txt
+
+
 kubectl apply -f 06-persistent-volumes.yaml
+
 kubectl apply -f 07-secrets.yaml
+
 kubectl apply -f 08-configmap.yaml
