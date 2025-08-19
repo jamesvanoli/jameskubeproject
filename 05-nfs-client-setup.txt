@@ -1,0 +1,3 @@
+#commands to run on each Kubernetes Node
+sudo apt install nfs-common -y
+sudo mount -t nfs <NFS_SERVER_IP>:/srv/nfs/mysql /mnt

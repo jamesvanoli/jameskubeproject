@@ -1,0 +1,6 @@
+#commands to be run server side to prep NFS
+sudo mkdir -p /srv/nfs/mysql /srv/nfs/wordpress
+sudo chown -R nobody:nogroup /srv/nfs
+echo "/srv/nfs/mysql *(rw,sync,no_subtree_check)" | sudo tee -a /etc/exports
+echo "/srv/nfs/wordpress *(rw,sync,no_subtree_check)" | sudo tee -a /etc/exports
+sudo exportfs -rav
